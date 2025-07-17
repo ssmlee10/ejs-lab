@@ -50,8 +50,14 @@ const RESTAURANT = {
   ]
 }
 
+// send RESTAURANT data from server.js to home.ejs
 app.get('/', (req, res) => {
   res.render('home.ejs', {RESTAURANT : RESTAURANT});
 });
+
+// send menu data from server.js to menu.ejs
+app.get('/menu', (req, res) => {
+  res.render('partials/menu.ejs', {menu: RESTAURANT.menu});
+})
 
 app.listen(3000);
