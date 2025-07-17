@@ -57,7 +57,16 @@ app.get('/', (req, res) => {
 
 // send menu data from server.js to menu.ejs
 app.get('/menu', (req, res) => {
-  res.render('partials/menu.ejs', {menu: RESTAURANT.menu});
-})
+  res.render('menu.ejs', {menu : RESTAURANT.menu});
+  // menu (ejs file): RESTAURANT.menu (array inside server.js)
+});
+
+app.get('/menu/:category', (req, res) => {
+  const category = req.params.category;
+  const categoryName = RESTAURANT.menu.filter((type) => type.category === category);
+  //type.category is array, category is parameter
+  console.log(categoryName);
+  res.render('category.ejs', { RESTAURANT: categoryName });
+  });
 
 app.listen(3000);
