@@ -15,7 +15,13 @@
   <title>Categories</title>
 </head>
 <body>
-  <h1>Menu Categories</h1>
-<p><%= categoryName %></p>
+  <h1><%= categoryName[0].category %> Menu</h1>
+<% categoryName.forEach(category => { %>
+ <p><b><%= category.name %></b><br>
+ Price: <%= category.price %><br>
+ Rating: <%= category.rating %><br>
+ Details: <%= category.details %>
+</p>
+<% }) %>
 </body>
 </html>

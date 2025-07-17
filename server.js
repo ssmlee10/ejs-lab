@@ -66,7 +66,10 @@ app.get('/menu/:category', (req, res) => {
   const categoryName = RESTAURANT.menu.filter((type) => type.category === category);
   //type.category is array, category is parameter
   console.log(categoryName);
-  res.render('category.ejs', { RESTAURANT: categoryName });
+  res.render('category.ejs', { categoryName : categoryName });
+  // we can use {banana: categoryName}
+  // banana is the variable name in category.js
+  // categoryName is the variable name we are sending from server.js
   });
 
 app.listen(3000);
